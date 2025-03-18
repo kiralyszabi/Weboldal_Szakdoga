@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bejelentkezés</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="/kepek/flag.png">
+    <link rel="stylesheet" href="adminoldalrabejelentkezes.css">
+
+</head>
+
+<body style="background-color: lightgrey;">
+
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+            <!-- Márka (logo vagy szöveg) -->
+            <a class="navbar-brand">
+                <div style="font-size: 25px;">
+                    <span style="color: red;">M</span><span style="color: white;">a</span><span
+                        style="color: green;">gy</span><span style="color: red;">a</span><span
+                        style="color: white;">r</span><span style="color: green;">o</span><span
+                        style="color: red;">r</span><span style="color: white;">sz</span><span
+                        style="color: green;">á</span><span style="color: red;">g</span>
+                    eseményei
+                </div>
+            </a>
+
+            <!-- Linkek -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="fooldal.html"><span style="color: lightgreen;">&#8592; Vissza </span></a>
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+        <div style="text-align: center;">
+
+            <span style="font-size: 40px;">Kérlek jelentkezz be a folytatáshoz!</span>
+            <hr>
+            <p class="bejelentkezes_cim">Felhasználó név:</p>
+            <input type="text" id="admin_felhasznalonev_input" class="bejelentkezes_input">
+
+            <p class="bejelentkezes_cim">Jelszó:</p>
+            <input type="password" id="admin_jelszo_input" class="bejelentkezes_input">
+            <br>
+
+            <button id="Bejelentkezes_gomb" onclick="bejelentkezes_ellenorzese()">Bejelentkezés</button>
+            
+            <br>
+            <br>
+            <p id="hiba_uzenet"></p>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <script src="adminbejelentkezes.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

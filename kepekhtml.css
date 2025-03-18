@@ -1,0 +1,104 @@
+/* Navbar stílusok */
+.navbar {
+    background-color: #222222;
+    /* Sötét háttér */
+    padding: 20px 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+/* Linkek stílusai */
+.navbar-nav .nav-link {
+    font-size: 16px;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin-right: 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #ff5f57;
+    /* Élénk piros szín hover hatásra */
+    color: #fff;
+}
+
+/* Mobil nézet: gombok függőleges elrendezése */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 15px;
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+/* Animáció, amikor a navbar betöltődik  */
+
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Fixáljuk a navbar-t */
+.felsonavbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Biztosítja, hogy a navbar a többi elem fölött legyen */
+}
+
+/* A body margin-ja, hogy a navbar ne takarja el a tartalmat */
+body {
+    margin-top: 80px; /* Adunk egy kis helyet a navbar alatt */
+    background-color: lightgrey;
+
+
+}
+
+/* Kép stílusok */
+img {
+    margin: 40px; /* Ha szükséges, a képek közötti távolságot is szabályozhatod */
+    height: 300px;
+    width: 100%;
+    border-radius: 34px; /* A teljes képre alkalmazzuk a lekerekítést */
+    object-fit: cover; /* A képek ne torzuljanak */
+    transition: transform 0.3s ease; /* Finom animáció a hover effektushoz */
+  }
+  
+  /* Hover hatás */
+  img:hover {
+    transform: scale(1.04); /* A kép finom nagyítása */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Kép tartományok lekerekítése */
+  .container img {
+    border-radius: 34px; /* A teljes kép sarkainak lekerekítése */
+  }
+  
+
+
+
