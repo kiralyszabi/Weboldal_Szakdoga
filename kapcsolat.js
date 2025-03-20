@@ -1,41 +1,44 @@
 function kapcsolatfelvitel() {
-    
-    const datum = new Date();
-   
-   const dateString =datum.getFullYear() + "-" + (datum.getMonth() + 1) + "-" + datum.getDate()
-    
-    var adatok = {
-        "bevitel1": document.getElementById("bevitel1").value,
-        "bevitel2": document.getElementById("bevitel2").value,
-        "bevitel3": document.getElementById("bevitel3").value,
-        "datum": dateString  // A mai dátum hozzáadása
+  const datum = new Date();
+  const dateString = datum.getFullYear() + "-" + (datum.getMonth() + 1) + "-" + datum.getDate();
 
-    }
-    
-
-    if (document.getElementById("bevitel1").value == "" || document.getElementById("bevitel2").value == "" || document.getElementById("bevitel3").value == "") {
-        document.getElementById("visszajelzes").innerHTML = "Minden mezőt ki kell tölteni!";
-        document.getElementById("visszajelzes").style.color = "red";  // Hibás üzenet
-    } else {
-        // Ha minden mező ki van töltve, akkor küldd el az üzenetet
-
-        fetch("http://localhost:3000/kapcsolatfelvitel", {
-        method: "POST",
-        body: JSON.stringify(adatok),
-        headers: { "Content-type": "application/json; charset=UTF-8" }
-    })
-        .then(x => x.text())
-        .then(y => {
-           document.getElementById("visszajelzes").innerHTML = y
-           document.getElementById("visszajelzes").style.color = "green";
-            
-        })
-    }
+  var adatok = {
+      "bevitel1": document.getElementById("bevitel1").value,
+      "bevitel2": document.getElementById("bevitel2").value,
+      "bevitel3": document.getElementById("bevitel3").value,
+      "datum": dateString  // A mai dátum hozzáadása
+  }
 
 
-    
-        
+  // E-mail validálás regex-szel
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  // Ellenőrzés, hogy a bevitt e-mail címek megfelelnek a formátumnak
+  if (!emailRegex.test(adatok.bevitel2)) {
+      document.getElementById("visszajelzes").innerHTML = "Kérjük, érvényes e-mail címet adjon meg!";
+      document.getElementById("visszajelzes").style.color = "red";  // Hibás üzenet
+      return; // Ha a validálás nem sikerül, ne folytasd a beküldést
+  }
+
+  if (adatok.bevitel1 == "" || adatok.bevitel2 == "" || adatok.bevitel3 == "") {
+      document.getElementById("visszajelzes").innerHTML = "Minden mezőt ki kell tölteni!";
+      document.getElementById("visszajelzes").style.color = "red";  // Hibás üzenet
+  } else {
+      // Ha minden mező ki van töltve és az e-mailek érvényesek, küldjük el az üzenetet
+
+      fetch(Cim + "kapcsolatfelvitel_web", {
+          method: "POST",
+          body: JSON.stringify(adatok),
+          headers: { "Content-type": "application/json; charset=UTF-8" }
+      })
+          .then(x => x.text())
+          .then(y => {
+              document.getElementById("visszajelzes").innerHTML = y;
+              document.getElementById("visszajelzes").style.color = "green";
+          })
+  }
 }
+
 
 
 // Válaszok előre meghatározottak

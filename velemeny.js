@@ -1,4 +1,4 @@
-fetch("http://localhost:3000/elfogadvamegjelenitve")
+fetch(Cim+"elfogadvamegjelenitve")
     .then(x => x.json())
     .then(v => megjelenit(v))
 

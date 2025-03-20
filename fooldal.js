@@ -1,13 +1,13 @@
 function adatokbetoltese() {
-    fetch("http://localhost:3000/varosnevek")
+    fetch(Cim+"varosnevek")
         .then(x => x.json())
         .then(y => tipusok(y));
 
-    fetch("http://localhost:3000/adatokLista")
+    fetch(Cim+"adatokLista")
         .then(x => x.json())
         .then(y => mindenadat(y));
 
-    fetch("http://localhost:3000/esemenytipusok")
+    fetch(Cim+"esemenytipusok")
         .then(x => x.json())
         .then(y => esemenynektipusai(y));
     
@@ -77,7 +77,7 @@ function kereses2() {
     varosokszures(keresettadat2);
 }
 function varosokszures(kulcsszo) {
-    fetch("http://localhost:3000/szures/" + kulcsszo)
+    fetch(Cim+"szures/" + kulcsszo)
         .then(x => x.json())
         .then(y => mindenadat(y));
 }
@@ -94,7 +94,7 @@ function kereses3() {
     tipusszures(keresettadat2);
 }
 function tipusszures(kulcsszo) {
-    fetch("http://localhost:3000/szurestipus/" + kulcsszo)
+    fetch(Cim+"szurestipus/" + kulcsszo)
         .then(x => x.json())
         .then(y => mindenadat(y));
 }
@@ -108,7 +108,7 @@ function kereses()
     else keresesmezo(keresettadat);
 }
 function keresesmezo(kulcsszo){
-    fetch("http://localhost:3000/keresek/"+kulcsszo)
+    fetch(Cim+"keresek/"+kulcsszo)
     .then(x=>x.json())
     .then(y=>mindenadat(y));
 }

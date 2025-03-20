@@ -69,9 +69,17 @@ body {
   }
 
 .card-img-top{
-  border:green solid 4px
+  border:green solid 3px
 }
 
 .card-title{
   font-weight: bold;
+}
+
+.reszletek{
+  border: 1px solid black;
+}
+.reszletek:hover{
+  transform: scale(1.05);
+  background-color: lightgreen;
 }

@@ -1,7 +1,7 @@
 function indul(){
 
 
-    fetch("http://localhost:3000/visszajelzesek")
+    fetch(Cim+"visszajelzesek")
     .then(x => x.json())
     .then(y => megjelenit(y))
 
@@ -44,7 +44,7 @@ function  elfogadas(parameter){
     };
     
 
-    fetch("http://localhost:3000/elfogadvauzenetek", {
+    fetch(Cim+"elfogadvauzenetek", {
         method: "POST",
         body: JSON.stringify(adatok),
         headers: { "Content-type": "application/json; charset=UTF-8" }
@@ -74,7 +74,7 @@ function torles(parameter){
             "bevitel1": parameter
         };
 
-    fetch("http://localhost:3000/visszajelzestorles", {
+    fetch(Cim+"visszajelzestorles", {
         method: "DELETE",
         body: JSON.stringify(adatok),
         headers: { "Content-type": "application/json; charset=UTF-8" }

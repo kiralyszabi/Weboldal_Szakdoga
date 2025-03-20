@@ -10,7 +10,7 @@ const bejelentkezes_ellenorzese=()=>{
 
 const bejelentkezes = async () => {
     try{
-        let response= await fetch("http://localhost:3000/adminBejelentkezes",{
+        let response= await fetch("https://nodejs317.dszcbaross.edu.hu/adminBejelentkezes",{
             method: "POST",
             body: JSON.stringify({
                 "admin_felhasznalonev":admin_felhasznalonev,
