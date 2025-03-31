@@ -1,7 +1,7 @@
 function adatokbetoltese() {
     fetch(Cim+"varosnevek")
         .then(x => x.json())
-        .then(y => tipusok(y));
+        .then(y => varosnev(y));
 
     fetch(Cim+"adatokLista")
         .then(x => x.json())
@@ -14,13 +14,13 @@ function adatokbetoltese() {
 }
 adatokbetoltese();
 
-function tipusok(adatok) {
+function varosnev(adatok) {
     console.log(adatok);
     var sz = "<option value='osszesadat'>Összes esemény</option>";
     for (var elem of adatok) {
         sz += ` <option value="${elem.vnev}">${elem.vnev}</option>`
     }
-    document.getElementById("tipusoklista").innerHTML = sz;
+    document.getElementById("esemenyvarosok").innerHTML = sz;
 }
 
 function esemenynektipusai(tip) {
@@ -69,7 +69,7 @@ function mindenadat(adatok) {
 
 //városnevek lenyilo---------------------
 function kereses2() {
-    var keresettadat2 = document.getElementById("tipusoklista").value;
+    var keresettadat2 = document.getElementById("esemenyvarosok").value;
     console.log(keresettadat2)
     if(keresettadat2=="osszesadat"){
         adatokbetoltese()

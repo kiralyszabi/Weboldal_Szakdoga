@@ -15,7 +15,7 @@ function kapcsolatfelvitel() {
 
   // Ellenőrzés, hogy a bevitt e-mail címek megfelelnek a formátumnak
   if (!emailRegex.test(adatok.bevitel2)) {
-      document.getElementById("visszajelzes").innerHTML = "Kérjük, érvényes e-mail címet adjon meg!";
+      document.getElementById("visszajelzes").innerHTML = "A beírt adatok nem megfelőlek az üzenet elküldésére!";
       document.getElementById("visszajelzes").style.color = "red";  // Hibás üzenet
       return; // Ha a validálás nem sikerül, ne folytasd a beküldést
   }
