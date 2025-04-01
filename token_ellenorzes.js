@@ -3,7 +3,7 @@ const token=localStorage.getItem('adminToken');
 
 //ha nincs token
 if(!token){
-    window.location.href="fooldal.html";//a főoldalra fogja vinni
+    window.location.href="index.html";//a főoldalra fogja vinni
 
 }
 else{
@@ -14,6 +14,6 @@ document.getElementById('kijelentkezes').addEventListener('click',(e)=> {
     e.preventDefault();
     localStorage.removeItem('adminToken');
 
-    window.location.href='fooldal.html';
+    window.location.href='index.html';
 });
 
