@@ -2,11 +2,13 @@ function kapcsolatfelvitel() {
   const datum = new Date();
   const dateString = datum.getFullYear() + "-" + (datum.getMonth() + 1) + "-" + datum.getDate();
 
+
+
   var adatok = {
-      "bevitel1": document.getElementById("bevitel1").value,
-      "bevitel2": document.getElementById("bevitel2").value,
-      "bevitel3": document.getElementById("bevitel3").value,
-      "datum": dateString  // A mai dátum hozzáadása
+    "bevitel1": document.getElementById("bevitel1").value,
+    "bevitel2": document.getElementById("bevitel2").value,
+    "bevitel3": document.getElementById("bevitel3").value,
+    "datum": dateString  // A mai dátum hozzáadása
   }
 
 
@@ -15,27 +17,36 @@ function kapcsolatfelvitel() {
 
   // Ellenőrzés, hogy a bevitt e-mail címek megfelelnek a formátumnak
   if (!emailRegex.test(adatok.bevitel2)) {
-      document.getElementById("visszajelzes").innerHTML = "A beírt adatok nem megfelőlek az üzenet elküldésére!";
-      document.getElementById("visszajelzes").style.color = "red";  // Hibás üzenet
-      return; // Ha a validálás nem sikerül, ne folytasd a beküldést
+    document.getElementById("visszajelzes").innerHTML = "A beírt adatok nem megfelőlek az üzenet elküldésére!";
+    document.getElementById("visszajelzes").style.color = "red";  // Hibás üzenet
+    return; // Ha a validálás nem sikerül, ne folytasd a beküldést
   }
 
   if (adatok.bevitel1 == "" || adatok.bevitel2 == "" || adatok.bevitel3 == "") {
-      document.getElementById("visszajelzes").innerHTML = "Minden mezőt ki kell tölteni!";
-      document.getElementById("visszajelzes").style.color = "red";  // Hibás üzenet
-  } else {
-      // Ha minden mező ki van töltve és az e-mailek érvényesek, küldjük el az üzenetet
+    document.getElementById("visszajelzes").innerHTML = "Minden mezőt ki kell tölteni!";
+    document.getElementById("visszajelzes").style.color = "red";  // Hibás üzenet
 
-      fetch(Cim + "kapcsolatfelvitel_web", {
-          method: "POST",
-          body: JSON.stringify(adatok),
-          headers: { "Content-type": "application/json; charset=UTF-8" }
+
+  } 
+  /*if (adatok.bevitel3.Length> 255) {
+    document.getElementById("visszajelzes").innerHTML = "Meghaladja a 255 szót";
+    document.getElementById("visszajelzes").style.color = "red";  // Hibás üzenet
+    return;
+  }
+  */
+  else {
+
+    // Ha minden mező ki van töltve és az e-mailek érvényesek, küldjük el az üzenetet
+    fetch(Cim + "kapcsolatfelvitel_web", {
+      method: "POST",
+      body: JSON.stringify(adatok),
+      headers: { "Content-type": "application/json; charset=UTF-8" }
+    })
+      .then(x => x.text())
+      .then(y => {
+        document.getElementById("visszajelzes").innerHTML = y;
+        document.getElementById("visszajelzes").style.color = "green";
       })
-          .then(x => x.text())
-          .then(y => {
-              document.getElementById("visszajelzes").innerHTML = y;
-              document.getElementById("visszajelzes").style.color = "green";
-          })
   }
 }
 
@@ -45,7 +56,7 @@ function kapcsolatfelvitel() {
 const answers = {
   "Mi a neved?": "A nevem Chatbot, azért lettem létrehozva, hogy a gyakori kérdésekre válaszokat adjak.",
   "Miért hoztátok létre ezt a weboldalt?": "Mindenkinek megszeretnénk mutatni Magyarországon az összes elérhető programokat.",
-  "Hogyan tudok saját eseményt feltölteni?":"Saját eseményt a mobil applikációnkon keresztűl tudsz feltölteni."
+  "Hogyan tudok saját eseményt feltölteni?": "Saját eseményt a mobil applikációnkon keresztűl tudsz feltölteni."
 };
 
 // Modal megnyitása
@@ -127,7 +138,7 @@ function sendQuestion(question, buttonElement) {
 }
 
 // Ha a felhasználó a modal ablak kívülre kattint
-window.onclick = function(event) {
+window.onclick = function (event) {
   const modal = document.getElementById('chat-modal');
   if (event.target === modal) {
     closeChat();
