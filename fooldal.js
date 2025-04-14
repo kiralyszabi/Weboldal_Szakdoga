@@ -33,7 +33,7 @@ function esemenynektipusai(tip) {
 }
 
 function mindenadat(adatok) {
-    console.log(adatok);
+    //console.log(adatok);
     var sz = "";
     var keresettadat = document.getElementById("keresettadat").value.toLowerCase();  // A keresett adat kisbetűs formája
 
