@@ -84,5 +84,22 @@ body {
   background-color: lightgreen;
 }
 .kepekrolunk{
-  height: 400px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 20px;
+  }
+
+  .kepekrolunk {
+    height: auto;
+  }
+}
+
+.card {
+  height: auto !important;
+  margin-bottom: 30px;
 }
